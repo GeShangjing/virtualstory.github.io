@@ -5,10 +5,20 @@
 <script src="./tmp01.js"></script>
 <style>
 h1{color:red;}
+#test{
+background:blue;
+width:200px;
+height:200px;
+}
 </style>
 </head>
 <body>
 <h1>test words</h1>
-
+<div id="test"></div>
+<script>
+document.getElementById("test").onclick=function(){
+document.getElementById("test").style="background:red;width:400px;-webkit-translate:width 5s,background 5s;";
+};
+</script>
 </body>
 </html>
