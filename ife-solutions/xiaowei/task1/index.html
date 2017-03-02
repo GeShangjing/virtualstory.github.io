@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>零基础HTML编程</title>
+  <title>小薇学院-任务一-零基础HTML编程</title>
+  <meta name="author" content="刘技、virtualstory">
+  <meta name="Keywords" content="百度前端技术学院、小薇学院、零基础HTML编程">
 </head>
 <body>
   <header>
@@ -16,7 +18,7 @@
       <li><a href="#link4">nav link 4</a></li>
     </ul>
   </nav>
-  <section>
+  <main>
     <article>
       <header>
         <h2>article h2 title</h2>
@@ -121,7 +123,7 @@
         </table>
       </section>
     </article>
-  </section>
+  </main>
   <aside>
     <header>
       <h3>aside title</h3>
@@ -143,18 +145,23 @@
         <div>password must 6-16 english character or number</div>
         <div>
           sex: 
-          <input type="radio" for="male" name="sex">male
-          <input type="radio" for="female" name="sex">female
+          <input type="radio" for="male" name="sex">
+          <label for="male">male</label>
+          <input type="radio" for="female" name="sex">
+          <label for="female">female</label>
           city:
           <select name="city" id="city">
-            <option value="beijing">beijing</option>
+            <option value="beijing" selected>beijing</option>
             <option value="guangzhou">guangzhou</option>
             <option value="shanghai">shanghai</option>
           </select>
           like:
-          <input type="checkbox" name="like">movement
-          <input type="checkbox" name="like">art
-          <input type="checkbox" name="like">science
+          <input type="checkbox" name="like" id="movement">
+          <label for="movement">movement</label>
+          <input type="checkbox" name="art" id="art">
+          <label for="art">art</label>
+          <input type="checkbox" name="science"  id="science">
+          <label for="science">science</label>
           personal details:
           <textarea name="personal-details" cols="30" rows="10" placeholder="here are multi-lines input box, please input your personal details"></textarea>
           <input type="submit" value="submit">
