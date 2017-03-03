@@ -1,0 +1,183 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 02</title>
+    <style>
+      .in{
+        margin: 20px;
+      }
+      button{
+        margin: 10px;
+      }
+      #queue{
+        width: 180px;
+        height: 540px;
+        position: relative;
+        background-color: #bbb;
+      }
+      #queue span{
+        background-color: red;
+        color: black;
+        text-align: center;
+        box-sizing: border-box;
+        border: 1px solid white;
+        width: 30px;
+        position: absolute;
+        float: left;
+        left: 0px;
+        bottom: 30px;
+      }
+    </style>
+  </head>
+<body>
+
+<div>
+  <input id="aqi-input" type="number">
+  <span class="in">
+    <button id="left-in">左侧入</button>
+    <button id="right-in">右侧入</button>
+  </span>
+  <span class="out">
+    <button id="left-out">左侧出</button>
+    <button id="right-out">右侧出</button>
+  </span>
+  <span class="algorithm">
+    <button id="insertion">插入算法排序</button>
+    <button id="selection">选择算法排序</button>
+  </span>
+</div>
+
+<div id="queue">
+  <span>10</span>
+  <span>3</span>
+  <span>7</span>
+  <span>12</span>
+  <span>11</span>
+  <span>30</span>
+</div>
+
+<script type="text/javascript">
+
+init();
+
+function getData(){
+  var oQueues = document.querySelector("#queue"),
+      aSpan = oQueues.getElementsByTagName("span");
+  var i, data = [];
+  for(i = 0; i < aSpan.length; i++){
+    data.push(parseInt(aSpan[i].innerText));
+  }
+  return data;
+}
+
+function render(data){
+  var oQueues = document.querySelector("#queue");
+  var i, content = "";
+  // 宽度自适应
+  oQueues.style.width = 30 * (data.length) + "px";
+  for(i = 0; i < data.length; i++){
+    content += "<span style='left:" + (30*i) + "px;height:" + (data[i] * 5) + "px;padding-top:" + (data[i] * 5) + "px;'>" + data[i] + "</span>";
+  }
+  oQueues.innerHTML = content;
+}
+
+function controls(oInput,data){
+  var flag = false;
+  if(oInput.value > 100 || oInput.value < 10){
+    oInput.value = "";
+    flag = true;
+  }
+  if(data.length === 60){
+    alert("队列元素数量最多限制为60个！");
+    flag = true;
+  }
+  return flag;
+}
+
+function init(){
+  var oInput = document.querySelector("#aqi-input"),
+      oLeftIn = document.querySelector("#left-in"),
+      oLeftOut = document.querySelector("#left-out"),
+      oRightIn = document.querySelector("#right-in"),
+      oRightOut = document.querySelector("#right-out");
+  var oInsertion = document.querySelector("#insertion"),
+      oSelection = document.querySelector("#selection");
+  var data = getData();
+  render(data);
+  oLeftIn.addEventListener("click", function(){
+    if(controls(oInput,data)){
+      return;
+    }
+    data.unshift(parseInt(oInput.value));
+    oInput.value = "";
+    render(data);
+  }, false);
+
+  oRightIn.addEventListener("click", function(){
+    if(controls(oInput,data)){
+      return;
+    }
+    data.push(parseInt(oInput.value));
+    oInput.value = "";
+    render(data);
+  }, false);
+
+  oLeftOut.addEventListener("click", function(){
+    alert(data.shift());
+    render(data);
+  }, false);
+
+  oRightOut.addEventListener("click", function(){
+    alert(data.pop());
+    render(data);
+  }, false);
+
+  // 插入排序算法 点击事件
+  oInsertion.addEventListener("click", function(){
+    render(data.insertion_sort());
+  }, false);
+
+  // 选择排序算法 点击事件
+  oSelection.addEventListener("click", function(){
+    render(data.selection_sort());
+  }, false);
+}
+// 插入排序
+Array.prototype.insertion_sort = function(){
+  var tmp;
+  for(var i = 1; i < this.length; i++){
+    for(var j = i - 1; j >= 0; j--){
+      if(this[j]>this[j+1]){
+        tmp = this[j];
+        this[j] = this[j+1];
+        this[j+1] = tmp;
+      }
+    }
+  }
+  return this;
+};
+
+// 选择排序
+Array.prototype.selection_sort = function(){
+  var minIndex,tmp;
+  for(var i = 0; i < this.length - 1; i++){
+    minIndex = i;
+    for(var j = i + 1; j < this.length; j++){
+      if(this[minIndex] > this[j]){
+        minIndex = j;
+      }
+    }
+    if(minIndex != i){
+      tmp = this[i];
+      this[i] = this[minIndex];
+      this[minIndex] = tmp;
+    }
+  }
+  return this;
+}
+
+</script>
+
+</body>
+</html>
