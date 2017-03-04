@@ -5,6 +5,162 @@
   <title>小薇学院-任务一-零基础HTML编程</title>
   <meta name="author" content="刘技、virtualstory">
   <meta name="Keywords" content="百度前端技术学院、小薇学院、零基础HTML编程">
+  <style>
+    /*全局 开始*/
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    /*全局 结束*/
+    /*头部 开始*/
+    #header{
+      background-color: #333333;
+      height: 80px;
+      padding: 0px 80px;
+    }
+    #header h1{
+      display: inline-block;
+      float:left;
+      line-height: 80px;
+      width: 0px;
+      text-indent: -1000px;
+    }
+    #header img{
+      width: 84px;
+      height: 60px;
+      display: inline-block;
+      float:left;
+      margin-top: 10px;
+      border-radius: 50%;
+    }
+    #header nav{
+      float: right;
+    }
+    #header nav li{
+      list-style-type: none;
+      float: left;
+    }
+    #header nav li a{
+      color: #AAAAAA;
+      width: 50px;
+      height: 100%;
+      margin: 0px 10px;
+      line-height: 80px;
+      text-decoration: none;
+    }
+    #header nav li a:hover{
+      color: #FFFFFF;
+    }
+    /*头部 结束*/
+    /*正文 开始*/
+    main{
+      margin: 0px 40px;
+    }
+    main .article{
+      padding: 10px 40px;
+      margin: 10px 0px;
+      border: 1px solid #999999;
+      box-shadow: 5px 5px 5px #999;
+    }
+    .article header h2.title{
+      margin: 20px 0px 10px 0px;
+      font-weight: bold;
+    }
+    .article header p.subtitle{
+      color: #333;
+      margin: 10px 0px;
+    }
+    .article header small{
+      display: block;
+      color: #666;
+      margin: 10px 0px;
+    }
+    .article section p{
+      text-indent: 50px;
+    }
+    .article ul li{
+      list-style-type: none;
+    }
+    .article section figure{
+      width: 430px;
+      padding: 5px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      box-shadow: 5px 5px 5px #aaa;
+    }
+    .article section figure figcaption{
+      text-align: center;
+    }
+    .article section figure img{
+      width: 420px;
+      height: 300px;
+    }
+    .article section ol{
+      margin: 10px 60px;
+    }
+    .article section table{
+      width: 100%;
+      border: 1px solid #000;
+    }
+    .article section table th,.article section table tr{
+      height: 30px;
+      text-align: center;
+    }
+    .article section table th{
+      background-color: #666;
+    }
+    .article section table tr:last-child{
+      background-color: #ccc;
+    }
+    .article section table tr:hover{
+      background-color: #aaa;
+    }
+    /*正文 结束*/
+    /*侧栏 开始*/
+    aside{
+      margin: 10px 40px;
+      padding: 10px 40px;
+      border: 1px solid #999999;
+      box-shadow: 5px 5px 5px #999;
+    }
+    aside h3{
+      margin: 20px 0px;
+    }
+    aside h3 small{
+      color: #666;
+    }
+    aside form{
+      margin: 0px auto;
+    }
+    aside form div{
+      width: 100%;
+      display: table;
+      padding: 5px;
+    }
+    aside form div span{
+      display: table-cell;
+      text-align: right;
+      padding-right: 10px;
+      width: 34%;
+    }
+    aside form input[type="submit"]{
+      width: 99%;
+      height: 40px;
+      background-color: rgb(51,85,208);
+      color: white;
+      border-radius: 10px;
+    }
+    /*侧栏 结束*/
+    /*结尾 开始*/
+    footer{
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      background-color: #000;
+      color: white;
+    }
+    /*结尾 结束*/
+  </style>
 </head>
 <body>
   <header id="header">
@@ -91,7 +247,7 @@
           <li>ranking two</li>
           <li>ranking three</li>
         </ol>
-        <table border="1">
+        <table>
           <caption>table caption</caption>
           <thead>
             <tr>
