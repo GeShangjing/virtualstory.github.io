@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>任务二：零基础HTML及CSS编码（一）</title>
+  <title>任务五：零基础HTML及CSS编码（二）</title>
   <meta name="author" content="刘技、virtualstory">
   <meta name="Keywords" content="百度前端技术学院、小薇学院、零基础HTML编程">
   <style>
@@ -54,11 +54,17 @@
     /*头部 结束*/
     /*正文 开始*/
     main{
-      margin: 0px 40px;
+      margin: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    main .wrap{
+      float: right;
+      margin-right: 400px;
     }
     main .article{
       padding: 10px 40px;
-      margin: 10px 0px;
+      margin: 20px 0px;
       border: 1px solid #999999;
       box-shadow: 5px 5px 5px #999;
     }
@@ -76,24 +82,31 @@
       margin: 10px 0px;
     }
     .article section p{
-      text-indent: 50px;
+      text-indent: 2em;
     }
     .article ul li{
       list-style-type: none;
     }
+    #article3 {
+      position: relative;
+      overflow: hidden;
+    }
     .article section figure{
-      width: 430px;
+      width: 220px;
       padding: 5px;
       margin: 10px;
       border: 1px solid #ccc;
       box-shadow: 5px 5px 5px #aaa;
     }
+    #article3 figure{
+      float: left;
+    }
     .article section figure figcaption{
       text-align: center;
     }
     .article section figure img{
-      width: 420px;
-      height: 300px;
+      width: 210px;
+      height: 150px;
     }
     .article section ol{
       margin: 10px 60px;
@@ -109,7 +122,7 @@
     .article section table th{
       background-color: #666;
     }
-    .article section table tr:last-child{
+    .article section table tfoot tr:last-child{
       background-color: #ccc;
     }
     .article section table tr:hover{
@@ -118,13 +131,19 @@
     /*正文 结束*/
     /*侧栏 开始*/
     aside{
-      margin: 10px 40px;
-      padding: 10px 40px;
+      width: 360px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin: 20px 0px;
+      padding: 10px;
       border: 1px solid #999999;
       box-shadow: 5px 5px 5px #999;
     }
     aside h3{
       margin: 20px 0px;
+      border-left: 4px solid gray;
+      padding-left: 1em;
     }
     aside h3 small{
       color: #666;
@@ -142,6 +161,7 @@
       text-align: right;
       padding-right: 10px;
       width: 34%;
+      font-size: 12px;
     }
     aside form input[type="submit"]{
       width: 99%;
@@ -175,7 +195,7 @@
       </ul>
     </nav>  
   </header>
-  <main>
+  <main><div class="wrap">
     <article id="article1" class="article">
       <header name="link1">
         <h2 class="title">article h2 title</h2>
@@ -213,6 +233,26 @@
         <h2 class="title">pictures</h2>
       </header>
       <section>
+        <figure>
+          <figcaption>humsome dog with glasses</figcaption>
+          <img src="../images/dog.jpg" alt="humsome dog with glasses">
+        </figure>
+        <figure>
+          <figcaption>humsome dog with glasses</figcaption>
+          <img src="../images/dog.jpg" alt="humsome dog with glasses">
+        </figure>
+        <figure>
+          <figcaption>humsome dog with glasses</figcaption>
+          <img src="../images/dog.jpg" alt="humsome dog with glasses">
+        </figure>
+        <figure>
+          <figcaption>humsome dog with glasses</figcaption>
+          <img src="../images/dog.jpg" alt="humsome dog with glasses">
+        </figure>
+        <figure>
+          <figcaption>humsome dog with glasses</figcaption>
+          <img src="../images/dog.jpg" alt="humsome dog with glasses">
+        </figure>
         <figure>
           <figcaption>humsome dog with glasses</figcaption>
           <img src="../images/dog.jpg" alt="humsome dog with glasses">
@@ -287,53 +327,53 @@
         </table>
       </section>
     </article>
-  </main>
-  <aside>
-    <header>
-      <h3>aside title <small>aside register title</small></h3>
-    </header>
-    <form action="">
-      <div>
-        <span>your email address:</span>
-        <input type="text" placeholder="here is a text input block">
-        <div>email address must valid</div>
-      </div>
-      <div>
-        <span>your password:</span>
-        <input type="password" placeholder="here is a text input block">
-      </div>
-      <div>
-        <span>your password again:</span>
-        <input type="password" placeholder="here is a text input block">
-        <div>password must 6-16 english character or number</div>
-      </div>
-      <div>
-        <span>sex: </span>
-        <label><input type="radio" name="sex" checked>male</label><label><input type="radio" name="sex">female</label>
-      </div>
-      <div>
-        <span>city: </span>
-        <select name="city" id="city">
-          <option value="beijing" selected>beijing</option>
-          <option value="guangzhou">guangzhou</option>
-          <option value="shanghai">shanghai</option>
-        </select>
-      </div>
-      <div>
-        <span>like: </span>
-        <label for="movement"><input type="checkbox" name="like" id="movement">movement</label>
-        <label for="art"><input type="checkbox" name="art" id="art">art</label>
-        <label for="science"><input type="checkbox" name="science"  id="science">science</label>
-      </div>
-      <div>
-        <span>personal details: </span>
-        <textarea name="personal-details" cols="100" rows="10" placeholder="here are multi-lines input box, please input your personal details"></textarea>
-      </div>
-      <div>
-        <input type="submit" value="submit">
-      </div>
-    </form>
-  </aside>
+    <aside>
+      <header>
+        <h3>aside title <small>aside register title</small></h3>
+      </header>
+      <form action="">
+        <div>
+          <span>your email address:</span>
+          <input type="text" placeholder="here is a text input block">
+          <div>email address must valid</div>
+        </div>
+        <div>
+          <span>your password:</span>
+          <input type="password" placeholder="here is a text input block">
+        </div>
+        <div>
+          <span>your password again:</span>
+          <input type="password" placeholder="here is a text input block">
+          <div>password must 6-16 english character or number</div>
+        </div>
+        <div>
+          <span>sex: </span>
+          <label><input type="radio" name="sex" checked>male</label><label><input type="radio" name="sex">female</label>
+        </div>
+        <div>
+          <span>city: </span>
+          <select name="city" id="city">
+            <option value="beijing" selected>beijing</option>
+            <option value="guangzhou">guangzhou</option>
+            <option value="shanghai">shanghai</option>
+          </select>
+        </div>
+        <div>
+          <span>like: </span>
+          <label for="movement"><input type="checkbox" name="like" id="movement">movement</label>
+          <label for="art"><input type="checkbox" name="art" id="art">art</label>
+          <label for="science"><input type="checkbox" name="science"  id="science">science</label>
+        </div>
+        <div>
+          <span>personal details: </span>
+          <textarea name="personal-details" cols="30" rows="10" placeholder="here are multi-lines input box, please input your personal details"></textarea>
+        </div>
+        <div>
+          <input type="submit" value="submit">
+        </div>
+      </form>
+    </aside>
+  </div></main>
   <footer>Copyright © virtualstory</footer>
 </body>
 </html>

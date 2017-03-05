@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>任务四：定位和居中问题</title>
+  <meta name="author" content="刘技、virtualstory">
+  <meta name="Keywords" content="百度前端技术学院、小薇学院、零基础HTML编程">
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    main{
+      width: 400px;
+      height: 200px;
+      background-color: #ccc;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      overflow: hidden;
+    }
+    .left{
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      background-color: #fc0;
+      top: -50px;
+      left: -50px;
+      border-radius: 50%;
+    }
+    .right{
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      background-color: #fc0;
+      right: -50px;
+      bottom: -50px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="left"></div>
+    <div class="right"></div>
+  </main>
+</body>
+</html>
