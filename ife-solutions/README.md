@@ -2,7 +2,7 @@
 
 some homework to http://ife.baidu.com
 
-## live demo
+## live demos
 
  + xiaowei
      * [task1](https://virtualstory.github.io/ife-solutions/xiaowei/task1)
@@ -16,4 +16,5 @@ some homework to http://ife.baidu.com
      * [task3](https://virtualstory.github.io/ife-solutions/binbin/task3/)
      * [task4](https://virtualstory.github.io/ife-solutions/binbin/task4/)
      * [task5](https://virtualstory.github.io/ife-solutions/binbin/task5/)
+     * [task6](https://virtualstory.github.io/ife-solutions/binbin/task6/)
 
