@@ -1,0 +1,159 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 02</title>
+    <style>
+      .container{
+        width: 800px;
+        margin: 10px auto;
+      }
+      textarea#aqi-input{
+        width: 100%;
+        height: 200px;
+        padding: 5px 10px;
+        font-size: 24px;
+      }
+      #inout{
+        width: 100%;
+        text-align: center;
+      }
+      .in{
+        margin: 20px;
+      }
+      #inout button{
+        margin: 10px 50px;
+      }
+      #queue{
+        text-align: center;
+        margin: 10px;
+      }
+      #queue span{
+        display: inline-block;
+        margin: 10px;
+        background-color: gray;
+        color: white;
+        font-size: 18px;
+        line-height: 18px;
+      }
+      #queue .active{
+        background-color: red;
+      }
+      #mark-op{
+        text-align: center;
+        margin: 10px;
+      }
+      #mark-op #reg{
+        margin: 10px 20px;
+        width: 480px;
+      }
+    </style>
+  </head>
+<body>
+
+<div class="container">
+  <textarea id="aqi-input" cols="30" rows="10"
+  placeholder="以:)分隔各元素"></textarea>
+  <div id="inout">
+    <span class="in">
+      <button id="left-in">左侧入</button>
+      <button id="right-in">右侧入</button>
+    </span>
+    <span class="out">
+      <button id="left-out">左侧出</button>
+      <button id="right-out">右侧出</button>
+    </span>
+  </div>
+  <div id="queue">
+    <span>10</span>
+    <span>3</span>
+    <span>7</span>
+    <span>12</span>
+    <span>11</span>
+    <span>30</span>
+  </div>
+  <div id="mark-op">
+    <input type="text" id="reg">
+    <button id="search">search</button>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+function getData(aSpan){
+  var i, data = [];
+  for(i = 0; i < aSpan.length; i++){
+    data.push(aSpan[i].innerText);
+  }
+  return data;
+}
+
+function render(data){
+  var oQueues = document.querySelector("#queue");
+  var i, content = "";
+  for(i = 0; i < data.length; i++){
+    content += "<span>" + data[i] + "</span>";
+  }
+  oQueues.innerHTML = content;
+}
+
+function init(){
+  var oInput = document.querySelector("#aqi-input"),
+      oLeftIn = document.querySelector("#left-in"),
+      oLeftOut = document.querySelector("#left-out"),
+      oRightIn = document.querySelector("#right-in"),
+      oRightOut = document.querySelector("#right-out"),
+      oReg = document.querySelector("#reg"),
+      oSearch = document.querySelector("#search");
+  var oQueues = document.querySelector("#queue"),
+      aSpan = oQueues.getElementsByTagName("span");
+  var data = getData(aSpan);
+
+  oLeftIn.addEventListener("click", function(){
+    var values = oInput.value.split(":)");
+    data = values.concat(data);
+    oInput.value = "";
+    render(data);
+  }, false);
+
+  oRightIn.addEventListener("click", function(){
+    var values = oInput.value.split(":)");
+    data = data.concat(values);
+    oInput.value = "";
+    render(data);
+  }, false);
+
+  oLeftOut.addEventListener("click", function(){
+    alert(data.shift());
+    render(data);
+  }, false);
+
+  oRightOut.addEventListener("click", function(){
+    alert(data.pop());
+    render(data);
+  }, false);
+
+  oSearch.addEventListener("click", function(){
+    search(aSpan,oReg.value);
+  }, false);
+
+  function search(aSpan,value){
+    var tmp = [];
+    for(var i = 0; i < data.length; i++){
+      aSpan[i].setAttribute("class","");
+      if(data[i].search(value) !== -1){
+        tmp.push(i);
+      }
+    }
+    for(i = 0; i < tmp.length; i++){
+      aSpan[tmp[i]].setAttribute("class","active");
+    }
+  }
+}
+
+init();
+
+</script>
+
+</body>
+</html>
