@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>任务一：表单（一）单个表单项的检验</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    #box{
+      width: 900px;
+      height: 60px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      line-height: 60px;
+      font-size: 24px;
+      text-align: center;
+    }
+    #inp{
+      margin: 0 30px;
+      height: 60px;
+      width: 480px;
+      box-sizing: border-box;
+      padding: 10px;
+      font-size: 24px;
+      border-radius: 5px;
+    }
+    #sub{
+      height: 60px;
+      width: 100px;
+      background-color: rgb(47,121,186);
+      color: white;
+      font-size: 24px;
+      border-radius: 5px;
+    }
+    #msg{
+      text-align: left;
+      margin-left: 180px;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+    <form action="#">
+      <label for="inp">
+        名称
+        <input type="text" id="inp">
+      </label>
+      <input type="submit" id="sub" value="验证">
+    </form>
+    <p id="msg">必填，长度为4~16个字符</p>
+  </div>
+  <script>
+    window.addEventListener('load', init, false);
+    function init(){
+      var oInp = document.getElementById('inp'),
+          oSub = document.getElementById('sub'),
+          oMsg = document.getElementById('msg');
+
+      oSub.addEventListener('click', check, false);
+      oInp.addEventListener('keyup', check,false);
+
+      function check(){
+        var val = oInp.value;
+        // 如果输入为空
+        if(!val.replace(" ","")){
+          oInp.style.border = '2px solid red';
+          oInp.focus();
+          oMsg.innerHTML = '名字不能为空';
+          oMsg.style.color = 'red';
+        }
+        // 获取长度
+        var strlen = 0;
+        for(var i = 0; i < val.length; i++){
+          strlen += val.charCodeAt(i) > 255 ? 2 : 1
+        }
+        // 判断长度
+        if(strlen < 4){
+          oInp.style.border = '2px solid red';
+          oInp.focus();
+          oMsg.innerHTML =  strlen === 0 ? '名字不能为空' : '长度过短';
+          oMsg.style.color = 'red';
+        }else if(strlen > 16){
+          oInp.style.border = '2px solid red';
+          oInp.focus();
+          oMsg.innerHTML = '长度过长';
+          oMsg.style.color = 'red';
+        }else{
+          oInp.style.border = '2px solid green';
+          oMsg.innerHTML = '名称格式正确';
+          oMsg.style.color = 'green';
+        }
+        // 阻止提交表单刷新页面
+        return false;
+      }
+    }
+  </script>
+</body>
+</html>
