@@ -11,6 +11,7 @@ some homework to http://ife.baidu.com
      * [task4](https://virtualstory.github.io/ife-solutions/xiaowei/task4)
      * [task5](https://virtualstory.github.io/ife-solutions/xiaowei/task5)
      * [task6](https://virtualstory.github.io/ife-solutions/xiaowei/task6)
+     * [task7](https://virtualstory.github.io/ife-solutions/xiaowei/task7)
  + binbin
      * [task1](https://virtualstory.github.io/ife-solutions/binbin/task1/)
      * [task2](https://virtualstory.github.io/ife-solutions/binbin/task2/)
