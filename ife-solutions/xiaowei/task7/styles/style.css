@@ -1,7 +1,5 @@
-html,body,header,main,section,
-footer,h1,h2,h3,h4,h5,h6,img,nav,
-ul,li,a,figure,aside,article,
-button,input,b,i{
+html,body,header,main,section,footer,h1,h2,h3,h4,h5,h6,img,
+nav,ul,li,a,figure,aside,article,div,p,button,input,b,i{
   padding: 0;
   margin: 0;
 }
@@ -11,64 +9,75 @@ header,footer,main,aside,figure,section,article,nav{
 a{
   text-decoration: none;
 }
-a:hover{
-  text-decoration: underline;
+ul{
+  list-style: none;
 }
-/*                 reset end                     */
+/*                  header start               */
+/*                 reset end                   */
 body{
   width: 1280px;
   margin: 0 auto;
 }
-header{
+#header{
   height: 56px;
-  box-sizing: border-box;
   padding: 0px 56px;
   overflow: hidden;
 }
-header h1{
-  height: 100%;
+
+#header h1{
   float: left;
-  line-height: 56px;
 }
-header h1 img{
+#header h1 a{
+  height: 100%;
+  line-height: 56px;
+  color: black;
+}
+#header h1 a img{
   width: 30px;
   height: 30px;
-  margin-right: 10px;
 }
-header a{
-  width: 76px;
-  height: 50px;
-  line-height: 50px;
-  padding: 0 16px;
+
+#header a.login {
   float: right;
+  display: inline-block;
+  width: 68px;
+  height: 56px;
+  line-height: 56px;
   color: red;
-  text-decoration: none;
 }
-header a img{
+#header a.login img{
   width: 16px;
   height: 20px;
-  margin-right: 10px;
+  margin-right: 5px;
 }
-header .header-nav{
-  width: 460px;
-  height: 50px;
-  line-height: 50px;
+
+#header .header-nav{
   float: right;
-}
-.header-nav ul{
-  list-style: none;
+  width: 460px;
+  line-height: 56px;
+  padding-right: 10px;
 }
 .header-nav ul li{
-  width: 92px;
-  box-sizing: border-box;
-  text-align: center;
   float: left;
 }
-.header-nav ul li.active{
-  color: red;
-  border-bottom: 8px solid red;
+.header-nav ul li a{
+  display: block;
+  width: 92px;
+  height: 56px;
+  text-align: center;
+  color: gray;
+  box-sizing: border-box;
 }
-/*                  header end                       */
+.header-nav ul li a:hover{
+  color: red;
+  border-bottom: 4px solid rgba(255,0,0,0.5);
+}
+.header-nav ul li a.active{
+  color: red;
+  border-bottom: 4px solid rgb(255,0,0);
+}
+/*                  header end                 */
+/*                new-life     start           */
 .new-life{
   height: 916px;
   background: url("../images/top-bg.jpg") no-repeat;
@@ -85,8 +94,7 @@ header .header-nav{
 .new-life .new-life-content{
   box-sizing: border-box;
   height: 684px;
-  padding-top: 226px;
-  padding-left: 116px;
+  padding: 226px 0 0 116px;
   color: white;
   font-family: "Microsoft YaHei";
 }
@@ -98,14 +106,16 @@ header .header-nav{
   font-size: 21px;
 }
 .new-life-content .content-btn{
+  display: block;
   width: 326px;
   height: 66px;
+  margin-top: 46px;
+  line-height: 66px;
+  border: 1px solid rgb(231,79,77);
   background-color: rgb(231,79,77);
   text-align: center;
-  color: white;
-  border: 1px solid rgb(231,79,77);
   font-size: 30px;
-  margin-top: 46px;
+  color: white;
 }
 
 .new-life-items{
@@ -116,18 +126,16 @@ header .header-nav{
   height: 100%;
   width: 320px;
   float: left;
-  box-sizing: border-box;
 }
 .new-life-item .item-img{
   display: block;
   width: 40px;
   height: 40px;
-  text-align: center;
   padding: 45px;
+  text-align: center;
   margin: 0 auto;
 }
 .new-life-item .item-content{
-  display: block;
   height: 56px;
   text-align: center;
   box-sizing: border-box;
@@ -136,7 +144,8 @@ header .header-nav{
   font-family: "SimHei";
   color: gray;
 }
-/*                new-life     end                 */
+/*                new-life     end             */
+/*         about-more-title    start */
 .about-more{
   height: 2272px;
   margin-top: 76px;
@@ -153,22 +162,23 @@ header .header-nav{
   margin-top: 50px;
   font-size: 54px;
   font-family: SimHei;
-  color: #333;
+  color: gray;
 }
-/*         about-more-title    end    */
+/*         about-more-title    end   */
+/*         map-find   start          */
 .about-more .map-find{
-  background: url(../images/map.png) no-repeat;
   height: 332px;
   text-align: center;
+  color: white;
+  background: url(../images/map.png) no-repeat;
   box-sizing: border-box;
-  overflow: hidden;
   position: relative;
 }
 .map-find .map-find-mask{
-  position: absolute;
-  background-color: rgba(255,0,0,0.1);
   width: 100%;
   height: 332px;
+  position: absolute;
+  background-color: rgba(255,0,0,0.1);
 }
 .map-find .find-title{
   margin-top: 38px;
@@ -176,20 +186,22 @@ header .header-nav{
   line-height: 44px;
   font-size: 21px;
   font-family: "Microsoft YaHei";
-  height: 46px;
 }
-.map-find .find-undeline{
-  width: 32px;
-  height: 10px;
-  margin: 0 auto;
-  border-top: 4px solid white;
+/*            common       */
+.undeline{
+  width: 40px;
+  height: 0;
+  margin: 10px auto;
+  box-sizing: border-box;
+  border: 2px solid white;
 }
+/*            common       */
 .map-find .find-subtitle{
   font-size: 12px;
   font-family: "Microsoft YaHei";
 }
+
 .map-find .search{
-  /*z-index: 10000;*/
   margin: 50px auto;
   height: 36px;
 }
@@ -197,28 +209,36 @@ header .header-nav{
   height: 100%;
   margin: 0 28px;
 }
-/* <form action="#" class="search">
-          <select class="search-country" name="search-country" id="search-country" placeholder="中国">
-            <option value="中国">中国</option>
-            <option value="英国">英国</option>
-          </select>
-          <select class="search-province" name="search-province" id="search-province">
-            <option value="北京市">北京市</option>
-            <option value="天津市">天津市</option>
-            <option value="河北省">河北省</option>
-            <option value="陕西省">陕西省</option>
-            <option value="内蒙古自治区">内蒙古自治区</option>
-            <option value="辽宁省">辽宁省</option>
-          </select>
-          <select class="search-city" name="search-city" id="search-city">
-            <option value="朝阳区">朝阳区</option>
-            <option value="东城区">东城区</option>
-          </select>
-          <input class="search-btn" type="submit" value="搜索">
-        </form>
-      </div>*/
 
-/*           map-find    end          */
+.search select{
+  width: 234px;
+  height: 36px;
+  margin: 0 30px;
+  box-sizing: border-box;
+  appearance: none;
+  -o-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  background: url(../images/bottom-arrow.png) no-repeat scroll right center;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 5px;
+  padding-right: 20px;
+}
+.search .search-btn{
+  width: 230px;
+  height: 36px;
+  background-color: rgb(191,79,73);
+  border: 1px solid rgb(191,79,73);
+  color: white;
+  font-size: 14px;
+  font-family: "Microsoft YaHei";
+  text-align: center;
+  letter-spacing: 10px;
+  cursor: pointer;
+}
+/*           map-find    end         */
+/*           activities    start     */
 .about-more .activities{
   height: 598px;
   overflow: hidden;
@@ -247,7 +267,7 @@ header .header-nav{
   margin-left: 2em;
   letter-spacing: 2em;
 }
-/*           activities    end          */
+/*           activities    end       */
 
 .about-more .time{
   height: 560px;
@@ -340,7 +360,7 @@ header .header-nav{
 .time-right-circle .circle.active{
   background-color: gray;
 }
-/*           time    end          */
+/*           time    end             */
 .about-more .we-love-life{
   height: 512px;
 }
@@ -424,7 +444,7 @@ header .header-nav{
   margin-top: -12px;
   border-color: transparent transparent transparent white;
 }
-/*           we-love-life    end          */
+/*           we-love-life    end               */
 .postulant{
   height: 616px;
   background-color: white;
@@ -516,7 +536,7 @@ form.postulant-form input[type="submit"]{
   background: transparent;
   border: 1px solid red;
 }
-/*           postulant    end          */
+/*           postulant    end                  */
 footer .contact{
   height: 350px;
   position: relative;
