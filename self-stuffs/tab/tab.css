@@ -1,0 +1,18 @@
+/*tab-box CSS start*/
+.tab-box .tabs .tab{
+  box-sizing: border-box;
+}
+.tab-box .tabs .tab:last-child{
+  border-right: 1px solid #bbb; /*跟背景色一致*/
+}
+.tab-box .tabs .tab.active{
+  background-color: #bbb; /*激活的tab元素背景色跟内容显示show中的背景色一致*/
+  border-bottom: 1px solid #bbb; /*激活的tab元素下边框跟背景色一致*/
+}
+.tab-box .shows .show{
+  display: none;
+}
+.tab-box .shows .show.active{
+  display: block;
+}
+/*tab-box CSS end*/

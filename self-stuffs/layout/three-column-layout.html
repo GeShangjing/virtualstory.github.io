@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>three column layout</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    header{
+      height: 60px;
+      background-color: #999;
+    }
+    main{
+      background-color: #bbb;
+      padding: 15px;
+      overflow: hidden;
+    }
+    aside.left{
+      width: 300px;
+      background-color: olive;
+      border: 1px solid black;
+      float: left;
+      /*height: 400px;*/
+    }
+    section.container{
+      background-color: orange;
+      border: 1px solid black;
+      height: 500px;
+      margin: 0px 310px;
+    }
+    aside.right{
+      background-color: teal;
+      border: 1px solid black;
+      width: 300px;
+      float: right;
+    }
+    footer{
+      height: 60px;
+      background-color: #999;
+    }
+  </style>
+</head>
+<body>
+  <header>header</header>
+  <main>
+    <aside class="left">left</aside>
+    <aside class="right">right</aside>
+    <section class="container">container</section>
+  </main>
+  <footer>footer</footer>
+</body>
+</html>

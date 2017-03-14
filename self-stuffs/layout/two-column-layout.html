@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>two column layout</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    header{
+      height: 60px;
+      background-color: #999;
+    }
+    main{
+      background-color: #bbb;
+      padding: 15px;
+      overflow: hidden;
+    }
+    aside.left{
+      width: 300px;
+      background-color: olive;
+      border: 1px solid black;
+      float: left;
+      /*height: 400px;*/
+    }
+    section.right{
+      background-color: teal;
+      border: 1px solid black;
+      margin-left: 310px;
+      /*height: 500px;*/
+    }
+    footer{
+      height: 60px;
+      background-color: #999;
+    }
+  </style>
+</head>
+<body>
+  <header>header</header>
+  <main>
+    <aside class="left">left</aside>
+    <section class="right">right</section>
+  </main>
+  <footer>footer</footer>
+</body>
+</html>
