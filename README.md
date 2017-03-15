@@ -1,3 +1,3 @@
-# virtualstory
+# virtualstory's live-demos
 
-<https://virtualstory.github.io>
+[virtualstory's live-demos](https://virtualstory.github.io)
