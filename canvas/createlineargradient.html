@@ -6,8 +6,6 @@
   <style>
     #canvas{
       display: block;
-      width: 510px;
-      height: 510px;
       margin: 10px auto;
       border: 1px solid black;
     }
@@ -18,15 +16,22 @@
   <script>
     var cvs = document.getElementById('canvas');
     var ctx = cvs.getContext('2d');
+    cvs.width = 510;
+    cvs.height = 510;
 
-    var grd = ctx.createLinearGradient(0,0,255*2,0);
+    var grd = ctx.createLinearGradient(0,0,510,0);
     for(var i = 0; i <= 255; i++){
-      grd.addColorStop(0,'red');
-      grd.addColorStop(1,'blue');
-      console.log('rgb('+i+','+i+','+i+')')
+      grd.addColorStop((i/255).toFixed(3),'rgb('+i+','+0+','+0+')');
+      console.log((i/255).toFixed(3)+':rgb('+i+','+0+','+0+')')
     }
+    // grd.addColorStop(0,"black");
+    // grd.addColorStop("0.3","magenta");
+    // grd.addColorStop("0.5","blue");
+    // grd.addColorStop("0.6","green");
+    // grd.addColorStop("0.8","yellow");
+    // grd.addColorStop(1,"red");
     ctx.fillStyle = grd;
-    ctx.fillRect(0,0,255*2,255*2);
+    ctx.fillRect(0,0,510,510);
   </script>
 </body>
 </html>
