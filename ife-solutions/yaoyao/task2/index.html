@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>任务一：表单（一）单个表单项的检验</title>
+  <title>任务二：表单（二）多个表单项的动态校验</title>
   <style>
     *{
       padding: 0;
@@ -49,79 +49,107 @@
       font-size: 24px;
       border-radius: 5px;
     }
+    .msg {
+      visibility: hidden;
+    }
   </style>
 </head>
 <body>
   <form id="box" action="#">
     <label for="name">
       名称
-      <input type="text" id="name">
+      <input class="input" type="text" id="name">
     </label>
-    <p id="name-msg">必填，长度为4~16个字符</p>
+    <p class="msg" id="name-msg">名称不能为空</p>
     <label for="psw">
       密码
-      <input type="password" id="psw">
+      <input class="input" type="password" id="psw">
     </label>
-    <p id="psw-msg">psw-msg</p>
+    <p class="msg" id="psw-msg">密码不能为空</p>
     <label for="repsw" class="repsw">
       密码确认
-      <input type="password" id="repsw">
+      <input class="input" type="password" id="repsw">
     </label>
-    <p id="repsw-msg">repsw-msg</p>
+    <p class="msg" id="repsw-msg">密码确认不能为空</p>
     <label for="email">
       邮箱
-      <input type="text" id="email">
+      <input class="input" type="text" id="email">
     </label>
-    <p id="email-msg">email-msg</p>
+    <p class="msg" id="email-msg">邮箱不能为空</p>
     <label for="phone">
-      邮箱
-      <input type="text" id="phone">
+      手机
+      <input class="input" type="text" id="phone">
     </label>
-    <p id="phone-msg">phone-msg</p>
+    <p class="msg" id="phone-msg">手机不能为空</p>
     <input type="submit" id="sub" value="验证">
   </form>
   <script>
     window.addEventListener('load', init, false);
     function init(){
-      var oInp = document.getElementById('inp'),
-          oSub = document.getElementById('sub'),
-          oMsg = document.getElementById('msg');
-
-      oSub.addEventListener('click', check, false);
-      oInp.addEventListener('keyup', check,false);
-
-      function check(){
-        var val = oInp.value;
-        // 如果输入为空
-        if(!val.replace(" ","")){
-          oInp.style.border = '2px solid red';
-          oInp.focus();
-          oMsg.innerHTML = '名字不能为空';
-          oMsg.style.color = 'red';
+      var oBtn = document.getElementById('sub'),
+          aInputs = document.getElementsByClassName('input'),
+          aMsgs = document.getElementsByClassName('msg');
+      // 类型, 正则匹配规则，提示内容，正确显示内容，错误显示内容，当前状态(0为空，1为正确，-1为错误，默认为0)
+      var msgArr = [
+        ['名称', '.{4,16}', '必填，长度为4~16个字符', '名称可用', '名称格式错误', 0], 
+        ['密码', '\\w{4,16}', '必填，长度为4~16个数字或下划线或字母或汉字的字符', '密码可用', '密码格式错误', 0], 
+        ['密码确认', '', '必填，重复输入密码', '密码输入一致', '两次密码不一致', 0], 
+        ['邮箱', '@.+\\.com$', '必填，以@xxx.com结尾' , '邮箱格式正确', '邮箱格式错误', 0], 
+        ['手机', '\\d{11}', '必填，11位数字' , '手机格式正确', '手机格式错误', 0]
+      ];
+      var i, j, len = aInputs.length;
+      for(i = 0; i < len; i++){
+        (function(i){
+          var _i = i;
+          aInputs[_i].addEventListener('focus', function(){
+            aMsgs[_i].innerHTML = msgArr[_i][2];
+            aMsgs[_i].style.visibility = 'visible';
+            aMsgs[_i].style.color = 'gray';
+            aInputs[_i].style.border = '2px solid blue';
+          }, false);
+          aInputs[_i].addEventListener('blur', function(){
+            if(!aInputs[_i].value){
+              aMsgs[_i].innerHTML = msgArr[_i][0] + '不能为空';
+              aMsgs[_i].style.color = 'red';
+              aInputs[_i].style.border = '2px solid red';
+              msgArr[_i][5] = 0;
+            }else{
+              if(check(_i)){
+                aMsgs[_i].innerHTML = msgArr[_i][3];
+                aMsgs[_i].style.color = 'green';
+                aInputs[_i].style.border = '2px solid green';
+                msgArr[_i][5] = 1;
+              }else{
+                aMsgs[_i].innerHTML = msgArr[_i][4];
+                aMsgs[_i].style.color = 'red';
+                aInputs[_i].style.border = '2px solid red';
+                msgArr[_i][5] = -1;
+              }
+            }
+          }, false);
+        })(i);
+      }
+      oBtn.addEventListener('click', function(){
+        var alertStr = '';
+        for(i = 0; i < len; i++){
+          if(msgArr[i][5] !== 1){
+            alertStr += aMsgs[i].innerHTML + '\n';
+          }
         }
-        // 获取长度
-        var strlen = 0;
-        for(var i = 0; i < val.length; i++){
-          strlen += val.charCodeAt(i) > 255 ? 2 : 1
+        if(alertStr){
+          alert(alertStr);
         }
-        // 判断长度
-        if(strlen < 4){
-          oInp.style.border = '2px solid red';
-          oInp.focus();
-          oMsg.innerHTML =  strlen === 0 ? '名字不能为空' : '长度过短';
-          oMsg.style.color = 'red';
-        }else if(strlen > 16){
-          oInp.style.border = '2px solid red';
-          oInp.focus();
-          oMsg.innerHTML = '长度过长';
-          oMsg.style.color = 'red';
+      },false);
+
+      function check(i){
+        var reg, isRight;
+        if(i === 2){
+          isRight = aInputs[2].value === aInputs[1].value ? true : false;
         }else{
-          oInp.style.border = '2px solid green';
-          oMsg.innerHTML = '名称格式正确';
-          oMsg.style.color = 'green';
+          reg = new RegExp(msgArr[i][1]);
+          isRight = reg.test(aInputs[i].value);
         }
-        // 阻止提交表单刷新页面
-        return false;
+        return isRight;
       }
     }
   </script>
