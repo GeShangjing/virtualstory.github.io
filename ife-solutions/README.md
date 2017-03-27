@@ -21,3 +21,4 @@ some homework to http://ife.baidu.com
      * [task6](https://virtualstory.github.io/ife-solutions/binbin/task6/)
  + binbin
       * [task1](https://virtualstory.github.io/ife-solutions/yaoyao/task1/)
+      * [task2](https://virtualstory.github.io/ife-solutions/yaoyao/task2/)
