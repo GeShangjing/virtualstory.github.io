@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>任务三：表单（三）联动</title>
+  <style>
+    body{
+      background-color: gray;
+    }
+    form {
+      position: absolute;
+      width: 600px;
+      height: 200px;
+      margin: auto;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      font-size: 24px;
+      text-align: center;
+      background-color: #ccc;
+    }
+    form p {
+      margin: 50px;
+    }
+    form p label {
+      margin: 50px;
+    }
+    form p select {
+      height: 30px;
+      margin: 20px;
+    }
+    #city {
+      width: 60px;
+    }
+    #school {
+      width: 200px;
+    }
+    #company {
+      margin: 20px;
+      height: 30px;
+      width: 260px;
+    }
+  </style>
+</head>
+<body>
+  <form action="#">
+    <p>
+      <label id="inSchoolBox" for="inSchool">
+        <input type="radio" name="isInSchool" id="inSchool"  checked="checked">
+        在校生
+      </label>
+      <label id="notInSchoolBox" for="notInSchool">
+        <input type="radio" name="isInSchool" id="notInSchool">
+        非在校生
+      </label>
+    </p>
+    <p id="in">
+      学校
+      <select name="city" id="city">
+        <option value="北京">北京</option>  
+        <option value="上海">上海</option>
+      </select>
+      <select name="school" id="school">
+        <option value="北京大学">北京大学</option>
+        <option value="北京理工大学">北京理工大学</option>
+      </select>
+    </p>
+    <p id="notIn" style="display:none">
+      就业单位
+      <input type="text" id="company">
+    </p>
+  </form>
+<script>
+  var inSchool = document.getElementById('inSchool'),
+      notInSchool = document.getElementById('notInSchool'),
+      inScoolBox = document.getElementById('inSchoolBox'),
+      notInSchoolBox = document.getElementById('notInSchoolBox'),
+      oIn = document.getElementById('in'),
+      oNotIn = document.getElementById('notIn'),
+      city = document.getElementById('city'),
+      school = document.getElementById('school');
+
+  var isInSchool = true;
+  inSchoolBox.addEventListener('click', function(){
+    oNotIn.style.display = 'none';
+    oIn.style.display = 'block';
+  }, false);
+  notInSchoolBox.addEventListener('click', function(){
+    isInSchool = false;
+    oIn.style.display = 'none';
+    oNotIn.style.display = 'block';
+  }, false);
+
+  var strCity = '北京';
+  var collages = {
+    '北京': ['北京大学', '北京理工大学'],
+    '上海': ['上海大学', '上海理工大学', '复旦大学']
+  };
+  city.addEventListener('click', function(){
+    strCity = city.value;
+    var i, len = collages[strCity].length, html = '';
+    for(i = 0; i < len; i++) {
+      html += '<option value="' + collages[strCity][i] + '">' + collages[strCity][i] + '</option>';
+    }
+    school.innerHTML = html;
+  }, false);
+</script>
+</body>
+</html>
