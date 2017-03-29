@@ -266,17 +266,20 @@ reRender(curStatus);
 oBtn.addEventListener('click', function(){
   var str = oOp.value;
   if(str === 'GO'){
-    // 向蓝色边所面向的方向前进一格（一格等同于正方形的边长）
+    // move
     check(curStatus);
-  }else if(str === 'TUN LEF'){
-    // 向左转（逆时针旋转90度
-    curStatus[2] = (curStatus[2] - 90)%360;
-  }else if(str === 'TUN RIG'){
-    // 向右转（顺时针旋转90度）
-    curStatus[2] = (curStatus[2] + 90)%360;
-  }else if(str === 'TUN BAC'){
-    // 向右转（旋转180度）
-    curStatus[2] = (curStatus[2] + 180)%360;
+  }else if(str === 'TUUP'){
+    // up
+    curStatus[2] = 0;
+  }else if(str === 'TURT'){
+    // right
+    curStatus[2] = 90;
+  }else if(str === 'TUDN'){
+    // down
+    curStatus[2] = 180;
+  }else if(str === 'TULF'){
+    // left
+    curStatus[2] = -90;
   }else{
     console.warn('wrong operation');
     return;
@@ -299,7 +302,7 @@ window.addEventListener('keydown', function(event){
       break;
     case 37:case 65:
       // left
-      curStatus[2] = 270;
+      curStatus[2] = -90;
       break;
     case 39:case 68:
       // right
@@ -313,7 +316,7 @@ window.addEventListener('keydown', function(event){
       console.log(keyCode);
       break;
   }
-  console.log(curStatus[2]);
+  console.log(curStatus);
   reRender(curStatus);
 }, false);
 function check(curStatus) {
@@ -335,7 +338,7 @@ function check(curStatus) {
     }else{
       curStatus[1] += 1;
     }
-  }else if(curStatus[2] === 270) { // 左
+  }else if(curStatus[2] === -90) { // 左
     if(curStatus[0] === 0){
       console.warn("移动失败，触碰到左边界啦");
     }else{
