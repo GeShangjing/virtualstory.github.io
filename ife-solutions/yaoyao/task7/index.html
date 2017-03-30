@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>任务七：UI组件之排序表格</title>
+  <style>
+    html,body,table,thead,tbody,th,td,span,a{
+      padding: 0;
+      margin: 0;
+    }
+    table {
+      width: 400px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    table thead th{
+      width: 76px;
+      height: 32px;
+    }
+    table tbody tr td {
+      text-align: center;
+    }
+    span.type {
+      display: block;
+      width: 60px;
+      height: 32px;
+      line-height: 32px;
+      float: left;
+    }
+    span.opt {
+      display: block;
+      float: right;
+      height: 32px;
+      background-color: #aaa;
+    }
+    span.opt a {
+      text-decoration: none;
+      cursor: pointer;
+    }
+    span.opt a.h2l {
+      display: block;
+      width: 10px;
+      height: 8px;
+      box-sizing: border-box;
+      border: 8px solid black;
+      border-color: transparent transparent black transparent;
+      margin: -4px 0 8px 0;
+    }
+    span.opt a.l2h {
+      display: block;
+      width: 10px;
+      height: 8px;
+      box-sizing: border-box;
+      border: 8px solid black;
+      border-color: black transparent transparent transparent;
+      margin: 8px 0 0 0;
+    }
+  </style>
+</head>
+<body>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>姓名</th>
+        <th>
+          <span class="opt"><a class="h2l"></a><a class="l2h"></a></span>
+          <span class="type">语文</span>
+        </th>
+        <th>
+          <span class="type">数学</span>
+          <span class="opt"><a class="h2l"></a><a class="l2h"></a></span>
+        </th>
+        <th>
+          <span class="type">英语</span>
+          <span class="opt"><a class="h2l"></a><a class="l2h"></a></span>
+        </th>
+        <th>
+          <span class="type">总分</span>
+          <span class="opt"><a class="h2l"></a><a class="l2h"></a></span>
+        </th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <script>
+    // 姓名，语文，数学，英语，总分
+    var arr = [
+      ["小明", 99, 76, 88, 0],
+      ["小红", 96, 84, 99, 0],
+      ["小华", 88, 100, 90, 0],
+      ["小蓝", 88, 99, 91, 0],
+      ["小露", 88, 97, 92, 0],
+      ["小绿", 88, 98, 92, 0]
+    ];
+    var i, j, colLen = arr[0].length, studentsLen = arr.length,
+        oTbody = document.getElementById('tbody'),
+        aH2L = document.getElementsByClassName("h2l"),
+        aL2H = document.getElementsByClassName("l2h");
+    // 计算总分
+    for(i = 0; i < studentsLen; i++){
+      for(j = 1; j < colLen; j++){
+        arr[i][colLen - 1] += arr[i][j];
+      }
+    }
+
+    // sortion
+    function sortion(arr){
+      this.arr = arr;
+    }
+    // 冒泡算法升序 二维数组
+    sortion.prototype.arrInNum = function(col){
+      var tmp;
+      for(var i = 0; i < studentsLen; i++){
+        for(var j = 0; j < studentsLen - i - 1; j++){
+          if(arr[j][col] > arr[j+1][col]){
+            tmp = arr[j];
+            arr[j] = arr[j+1];
+            arr[j+1] = tmp;
+          }else if(col !== colLen-1 && arr[j][col] === arr[j+1][col]){ // 如果相等，则按总分排序
+            if(arr[j][colLen-1]> arr[j+1][colLen-1]){
+              tmp = arr[j];
+              arr[j] = arr[j+1];
+              arr[j+1] = tmp;
+            }
+          }
+        }
+      }
+      return arr;
+    }
+
+    // 实例化，默认以语文成绩从低到高排列
+    var sort = new sortion(arr);
+    sort.arrInNum(1);
+    reRender();
+    // 给按钮添加点击排序事件
+    for(i = 1; i < colLen; i++){
+      (function(j){
+        aH2L[j-1].addEventListener('click', function(){
+          sort.arrInNum(j).reverse();
+          reRender();
+        }, false);
+        aL2H[j-1].addEventListener('click', function(){
+          sort.arrInNum(j);
+          reRender();
+        }, false);
+      })(i);
+    }
+    // 重新排序后重新渲染列表
+    function reRender(){
+      var i,j,htmlStr = '';
+      for(i = 0; i < studentsLen; i++){
+        htmlStr += "<tr>";
+        for(j = 0; j < colLen; j++){
+          htmlStr += "<td>" + arr[i][j] + "</td>";
+        }
+        htmlStr += "</tr>";
+      }
+      oTbody.innerHTML = htmlStr;
+    }
+
+  </script>
+</body>
+</html>
