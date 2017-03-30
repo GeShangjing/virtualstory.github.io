@@ -24,3 +24,6 @@ some homework to http://ife.baidu.com
       * [task2](https://virtualstory.github.io/ife-solutions/yaoyao/task2/)
       * [task3](https://virtualstory.github.io/ife-solutions/yaoyao/task3/)
       * [task4](https://virtualstory.github.io/ife-solutions/yaoyao/task4/)
+      * [task5](https://virtualstory.github.io/ife-solutions/yaoyao/task5/)
+      * [task6](https://virtualstory.github.io/ife-solutions/yaoyao/task6/)
+      * [task7](https://virtualstory.github.io/ife-solutions/yaoyao/task7/)
