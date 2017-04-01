@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>任务十二：学习CSS 3的新特性</title>
+  <style>
+    body{
+      text-align: center;
+    }
+    table{
+      margin: 10px auto;
+    }
+    thead tr{
+      background-color: #000;
+      color: #fff;
+    }
+    tbody tr:first-child, tbody tr:nth-child(2), tbody tr:nth-child(3) {
+      color: #f00;
+    }
+    tbody tr:nth-of-type(2n) {
+      background-color: #aaa;
+    }
+    tbody tr:hover {
+      background-color: orange;
+    }
+    input {
+      width: 100px;
+      height: 20px;
+      margin: 20px;
+    }
+    input:focus {
+      width: 300px;
+      height: 40px;
+      line-height: 40px;
+      padding: 5px;
+      box-sizing: border-box;
+      font-size: 24px;
+      border: 2px solid blue;
+      box-shadow: 2px 2px 2px #000;
+    }
+
+    .tabbox {
+      width: 300px;
+      height: 200px;
+      position: relative;
+      margin: 30px auto;
+      overflow: hidden;
+    }
+    .op {
+      width: 30px;
+      height: 30px;
+      background-color: #aaa;
+      color: #fff;
+      position: absolute;
+      bottom: 0;
+    }
+    .op-one {
+      right: 64px;
+    }
+    .op-two {
+      right: 32px;
+    }
+    .op-three {
+      right: 0px;
+    }
+    .op-one:hover .tab-one {
+      z-index: -1;
+      right: -64px;
+      transition: all 1s;
+    }
+    .op-two:hover .tab-two {
+      z-index: -1;
+      right: -32px;
+      transition: all 1s;
+    }
+    .op-three:hover .tab-three {
+      z-index: -1;
+      right: 0;
+      transition: all 1s;
+    }
+
+    .op span {
+      line-height: 30px;
+    }
+    .tab {
+      width: 300px;
+      height: 200px;
+      position: absolute;
+      right: 300px;
+      bottom: 0;
+    }
+    .tab-one {
+      right: -64px;
+      z-index: -1;
+      background-color: rgba(255,0,0,0.5);
+    }
+    .tab-two {
+      background-color: rgba(0,255,0,0.5);
+    }
+    .tab-three {
+      background-color: rgba(0,0,255,0.5);
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>排名</th>
+        <th>网站</th>
+        <th>热度</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>百度前端技术学院</td>
+        <td>13000</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>百度前端技术学院</td>
+        <td>12000</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>百度前端技术学院</td>
+        <td>11000</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>百度前端技术学院</td>
+        <td>10000</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>百度前端技术学院</td>
+        <td>9000</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>百度前端技术学院</td>
+        <td>8000</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>百度前端技术学院</td>
+        <td>7000</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>百度前端技术学院</td>
+        <td>6000</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>百度前端技术学院</td>
+        <td>5000</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>百度前端技术学院</td>
+        <td>4000</td>
+      </tr>
+    </tbody>
+  </table>
+  <input type="text" class="short">
+  <div class="tabbox">
+    <div class="op op-one">
+      <div class="tab tab-one"></div>
+      <span>1</span>
+    </div>
+    <div class="op op-two">
+      <div class="tab tab-two"></div>
+      <span>2</span>
+    </div>
+    <div class="op op-three">
+      <div class="tab tab-three"></div>
+      <span>3</span>
+    </div>
+  </div>
+</body>
+</html>
