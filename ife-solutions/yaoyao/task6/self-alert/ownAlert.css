@@ -1,0 +1,77 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  box-sizing: border-box;
+  padding: 15px;
+  overflow-x: hidden;
+}
+#scrollBox {
+  width: 100%;
+  height: 5000px;
+}
+
+.ownAlert-mask {
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(0,0,0,0.3);
+}
+.ownAlert {
+  position: fixed;
+  width: 400px;
+  height: 300px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  box-sizing: border-box;
+  padding: 15px;
+  word-wrap: break-word;
+  background-color: #666;
+  color: white;
+}
+
+.ownAlert header {
+  width: 100%;
+  heigth: auto;
+  box-sizing: border-box;
+  padding: 0px 30px 5px 5px;
+  border-bottom: 1px solid gray;
+}
+.ownAlert header a {
+  text-decoration: none;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #fff;
+  background-color: #666;
+}
+.ownAlert footer {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  height: 50px;
+  text-align: center;
+  padding: 10px;
+  border-top: 1px solid gray;
+}
+.ownAlert footer button {
+  width: 60px;
+  height: 30px;
+  margin: 0 10px;
+  cursor: pointer;
+}

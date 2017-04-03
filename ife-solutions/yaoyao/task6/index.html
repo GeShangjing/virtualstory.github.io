@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>任务六：UI组件之浮出层</title>
+  <link rel="stylesheet" href="./self-alert/ownAlert.css">
+</head>
+<body>
+  <div id="scrollBox">
+    lorem*100
+  </div>
+  <div class="ownAlert-mask">
+    <div class="ownAlert">
+      <header>
+        <h1>header</h1>
+        <a href="#" class="close">x</a>
+      </header>
+      <main class="content">
+        <p>content</p>
+        <p>content</p>
+        <p>content</p>
+      </main>
+      <footer>
+        <button class="checked">确定</button>
+        <button class="close">关闭</button>
+      </footer>
+    </div>
+  </div>
+  <script src="./self-alert/ownAlert.js"></script>
+  <script>
+    var ownalert = new ownAlert();
+    ownalert.open();
+  </script>
+</body>
+</html>
