@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>任务八：JavaScript和树（二）</title>
+  <style>
+    .box {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border: 1px solid #000;
+      height: 80%;
+      background-color: #fff;
+      transition: all 0.5s;
+      margin: 10px;
+    }
+    .Super {
+      margin: 30px auto;
+      width: 1300px;
+      height: 300px;
+    }
+    .btns {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px auto;
+      width: 90%;
+    }
+  </style>
+</head>
+<body>
+  <div class="box Super">
+    Super
+    <div class="box Car">
+      Car
+      <div class="box Apple">
+        Apple
+        <div class="box Pear">Pear</div>
+        <div class="box Pig">Pig</div>
+        <div class="box Cola">Cola</div>
+        <div class="box Soccer">Soccer</div>
+      </div>
+      <div class="box Phone">
+        Phone
+      </div>
+      <div class="box box-113">
+        <div class="box Book">Book</div>
+        <div class="box School">School</div>
+      </div>
+    </div>
+    <div class="box Note">
+      Note
+      <div class="box Human">
+        Human
+        <div class="box Code">Code</div>
+        <div class="box Operate">Operate</div>
+        <div class="box Man">Man</div>
+      </div>
+      <div class="box Program">
+        Program
+        <div class="box Bement">
+          Bement
+          <div class="box Cat">Cat</div>
+        </div>
+        <div class="box Glass">Glass</div>
+      </div>
+    </div>
+    <div class="box Fish">
+      Fish
+    </div>
+  </div>
+  <div class="btns">
+    <button class="btn dlr">前序</button>
+    <button class="btn lrd">后序</button>
+    <div>
+      <input type="text">
+      <button class="btn search">查询</button>
+    </div>
+  </div>
+  <script>
+    window.onload = function() {
+      var timer = null;
+
+      var dlrBtn = document.querySelector('.dlr'),
+          lrdBtn = document.querySelector('.lrd');
+      var root = document.querySelector('.Super');
+      var input = document.querySelector('input'),
+          searchBtn = document.querySelector('.search');
+
+      dlrBtn.onclick = function(){
+        btnEvent(root, dlr, timer);
+      };
+  
+      lrdBtn.onclick = function(){
+        btnEvent(root, lrd, timer);
+      };
+
+      searchBtn.onclick = function(){
+        var flag = input.value;
+        if(!flag.replace(/\s+/g, '')){
+          alert('输入不能为空！');
+          return;
+        }
+        btnEvent(root, dlr, timer, flag);
+      };
+
+      function btnEvent(root, fn, timer, flag) {
+        var arr = [];
+        clearInterval(timer);
+        fn(root,arr);
+        action(arr, flag);
+      }
+
+      function action(arr, flag) {
+        var i = 0;
+        var hasFind = false;
+        timer = setInterval(function(){
+          if(i > arr.length - 1) {
+            arr[arr.length-1].style.backgroundColor = '#fff';
+            arr[arr.length-1].style.transform = 'scale(1)';
+            clearInterval(timer);
+            if(flag && !hasFind) {
+              alert('没找到！');
+            }
+          }else {
+            if(i > 0) {
+              arr[i-1].style.backgroundColor = '#fff';
+              arr[i-1].style.transform = 'scale(1)';
+            }
+            arr[i].style.backgroundColor = '#69c';
+            arr[i].style.transform = 'scale(1.1)';
+            if(arr[i].className.toLowerCase().indexOf(flag) !== -1) {
+              hasFind = true;
+              arr[i].style.backgroundColor = '#f00';
+              arr[i].style.transform = 'scale(1)';
+              clearInterval(timer);
+            }
+          }
+          i++;
+        }, 500);
+      }
+
+      function dlr(node, arr) {
+        if(node !== null) {
+          arr.push(node);
+          for(var i = 0; i < node.children.length; i++) {
+            dlr(node.children[i], arr);
+          }
+        }
+      }
+      function lrd(node, arr) {
+        if(node !== null) {
+          for(var i = 0; i < node.children.length; i++) {
+            dlr(node.children[i], arr);
+          }
+          arr.push(node);
+        }
+      }
+    };
+  </script>
+</body>
+</html>
