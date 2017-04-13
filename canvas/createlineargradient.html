@@ -2,36 +2,131 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>createlineargradient</title>
+  <title>createLinearGradient</title>
   <style>
-    #canvas{
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 600px;
+    }
+    .controls {
+      width: 300px;
+      height: 500px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      align-items: center;
+      border: 1px solid #000;
+    }
+    .code {
+      width: 300px;
+      height: 500px;
+      border: 1px solid #000;
+    }
+    #canvas {
       display: block;
-      margin: 10px auto;
-      border: 1px solid black;
+      border: 1px solid #000;
+    }
+    
+    .controls label, .controls pre{
+      display: block;
+    }
+
+    ul {
+      display: block;
+      list-style: none;
+      margin: 0;
     }
   </style>
 </head>
 <body>
-  <canvas id="canvas"></canvas>
+  <aside class="controls">
+    <pre>context.createLinearGradient(x0,y0,x1,y1)</pre>
+    <label for="x0">
+      x0
+      <input type="range" value="0" step="1" name="x0" id="x0">
+    </label>
+    <label for="y0">
+      y0
+      <input type="range" value="0" step="1" name="y0" id="y0">
+    </label>
+    <label for="x1">
+      x1
+      <input type="range" value="0" step="1" name="x1" id="x1">
+    </label>
+    <label for="y1">
+      y1
+      <input type="range" value="0" step="1" name="y1" id="y1">
+    </label>
+    <label for="addColor">
+      <input type="text" id="addColor" name="addColor">
+      <button class="add">add</button>
+    </label>
+    <ul class="showColor">
+      <li><span class="num">0.5</span> - <span class="color">red</span></li>
+      <li><span class="num">1</span> - <span class="color">green</span></li>
+    </ul>
+  </aside>
+  <canvas id="canvas">
+    your browser can't support canvas!
+  </canvas>
+  <pre class="code"></pre>
   <script>
-    var cvs = document.getElementById('canvas');
-    var ctx = cvs.getContext('2d');
-    cvs.width = 510;
-    cvs.height = 510;
+    window.onload = function(){
+      init();
 
-    var grd = ctx.createLinearGradient(0,0,510,0);
-    for(var i = 0; i <= 255; i++){
-      grd.addColorStop((i/255).toFixed(3),'rgb('+i+','+0+','+0+')');
-      console.log((i/255).toFixed(3)+':rgb('+i+','+0+','+0+')')
-    }
-    // grd.addColorStop(0,"black");
-    // grd.addColorStop("0.3","magenta");
-    // grd.addColorStop("0.5","blue");
-    // grd.addColorStop("0.6","green");
-    // grd.addColorStop("0.8","yellow");
-    // grd.addColorStop(1,"red");
-    ctx.fillStyle = grd;
-    ctx.fillRect(0,0,510,510);
+
+      function init(){
+        var cvs = document.getElementById('canvas');
+        cvs.width = 500;
+        cvs.height = 500;
+        var ctx = cvs.getContext('2d');
+        var pos = [0, 0, 0, 0];
+        rangeChange(ctx, pos); 
+        render(ctx, pos);
+      }
+
+
+      function rangeChange(ctx, pos){
+        var aRanges = document.querySelectorAll('input[type="range"]');
+        for(var i = 0; i < aRanges.length; i++) {
+          aRanges[i].min = 0;
+          aRanges[i].max = 500;
+          (function(m){
+            aRanges[m].onchange = function(){
+              pos[m] = +this.value;
+              render(ctx, pos);
+            };
+          })(i);
+        }
+      }
+
+      function render(ctx, pos){
+        var grd = ctx.createLinearGradient(pos[0],pos[1],pos[2],pos[3]);
+        grd.addColorStop(0,'red');
+        grd.addColorStop(1,'green');
+        ctx.fillStyle = grd;
+        ctx.fillRect(0,0,500,500);
+        var code = `
+ var grd = ctx.createLinearGradient(pos[0],pos[1],pos[2],pos[3]);
+ grd.addColorStop(0,'red');
+ grd.addColorStop(1,'green');
+ ctx.fillStyle = grd;
+        `;
+        var oCode = document.querySelector('.code');
+        oCode.innerHTML = code;
+      }
+
+
+    };
   </script>
 </body>
 </html>
