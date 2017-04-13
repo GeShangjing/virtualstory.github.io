@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>canvas</title>
+  <style>
+    #canvas {
+      display: block;
+      margin: 30px auto;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas">
+    your browser can't support canvas!
+  </canvas>
+  <script>
+    window.onload = function(){
+      init();
+      function init(){
+        var cvs = document.getElementById('canvas');
+        cvs.width = 800;
+        cvs.height = 600;
+        var ctx = cvs.getContext('2d');
+        // you code 
+      }
+    };
+  </script>
+</body>
+</html>
