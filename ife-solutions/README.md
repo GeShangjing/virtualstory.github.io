@@ -35,4 +35,4 @@ some homework to http://ife.baidu.com
       * [task5](https://virtualstory.github.io/ife-solutions/yaoyao/task5/)
       * [task6](https://virtualstory.github.io/ife-solutions/yaoyao/task6/)
       * [task7](https://virtualstory.github.io/ife-solutions/yaoyao/task7/)
-      * [task8](https://virtualstory.github.io/ife-solutions/yaoyao/task8/)
+s
