@@ -130,6 +130,7 @@ header.header .date{
   color: #000000;
   line-height: 40px;
   text-decoration: underline;
+  border-top: 2px solid #cc8091;
 }
 .about-right .tech{
   font-size: 12px;
@@ -145,6 +146,7 @@ header.header .date{
   margin-left: -16px;
 }
 .about-right .diff{
+  position: relative;
   font-family: "Microsoft YaHei";
   color: #cc8091;
 }
@@ -152,9 +154,12 @@ header.header .date{
   font-size: 55px;
 }
 .about-right p.diff span.css{
+  position: absolute;
+  left: 80px;
+  top: 20px;
   font-size: 21px;
 }
-.about-right p.diff span.csses{
+.about-right p.diff sub.csses{
   font-size: 12px;
 }
 /*about-right*/
@@ -324,7 +329,7 @@ header.header .date{
 }
 .zero-right .hello{
   font-size: 12px;
-  line-height: 6px;
+  line-height: 12px;
 }
 .hello-world .blockquote{
   float: right;
