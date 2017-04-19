@@ -12,6 +12,9 @@ a{
 ul{
   list-style: none;
 }
+* {
+  // box-sizing: border-box;
+}
 /*                  header start               */
 /*                 reset end                   */
 body{
@@ -143,6 +146,10 @@ body{
   font-size: 14px;
   font-family: "SimHei";
   color: gray;
+  border-right: 2px solid rgb(118, 119, 119);
+}
+.new-life-item .item-content.item-content-four{
+  border-right: 0;
 }
 /*                new-life     end             */
 /*         about-more-title    start */
