@@ -160,6 +160,7 @@ body{
 .about-more .about-more-title{
   height: 270px;
   text-align: center;
+  background-color: #edecec;
 }
 .about-more-title .about-more-title-img{
   width: 90px;
@@ -226,6 +227,9 @@ body{
   -o-appearance: none;
   -ms-appearance: none;
   -webkit-appearance: none;
+  position: relative;
+  left: 0px;
+  top: 36px;
   background: url(../images/bottom-arrow.png) no-repeat scroll right center;
   background-color: #fff;
   box-sizing: border-box;
@@ -582,6 +586,7 @@ footer .contact{
   height: 100%;
   box-sizing: border-box;
   padding-right: 80px;
+  padding-left: 20px;
 }
 .wrapper .contact-input .btn{
   width: 80px;
