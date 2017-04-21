@@ -227,9 +227,6 @@ body{
   -o-appearance: none;
   -ms-appearance: none;
   -webkit-appearance: none;
-  position: relative;
-  left: 0px;
-  top: 36px;
   background: url(../images/bottom-arrow.png) no-repeat scroll right center;
   background-color: #fff;
   box-sizing: border-box;
