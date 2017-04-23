@@ -1,126 +1,174 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8">
-  <title>task11</title>
-  <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
-  <style>
-    html, body {
-      padding: 0;
-      margin: 0;
-    }
-    body {
-      font-size: 1rem;
-    }
-  </style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>移动端web页面</title>
+<link rel="stylesheet" href="css/mission11.css" type="text/css"/>
 </head>
+
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li>导航</li>
-        <li class="active">导航</li>
-        <li>导航</li>
-        <li>导航</li>
-        <li>导航</li>
-      </ul>
-    </nav>
+  <header class="header">
+    <a  class="header-btn" href="">&lt;返回</a>小熊
   </header>
-  <main>
-    <figure class="bg-bear">
-      <img src="images/bg-big-bear.png" alt="big-bear">
-    </figure>
-    <ul class="tags">
-      <li>
-        <img src="images/tag.png" alt="tag">
-        <span>标签</span>
-      </li>
-      <li>
-        <img src="images/tag.png" alt="tag">
-        <span>标签</span>
-      </li>
-      <li>
-        <img src="images/tag.png" alt="tag">
-        <span>标签</span>
-      </li>
-      <li>
-        <img src="images/tag.png" alt="tag">
-        <span>标签</span>
-      </li>
-      <li>
-        <img src="images/tag.png" alt="tag">
-        <span>标签</span>
-      </li>
-    </ul>
-    <ul class="cols">
-      <li>
-        <img src="images/hands-down.png" alt="bear-hands-down">
-        <h2 class="title">分栏一</h2>
-        <h3 class="sutitle">分栏小标题</h3>
-      </li>
-      <li>
-        <img src="images/hands-up.png" alt="bear-hands-up">
-        <h2 class="title">分栏二</h2>
-        <h3 class="sutitle">分栏小标题</h3>
-      </li>
-      <li>
-        <img src="images/bear-child.png" alt="bear-child">
-        <h3 class="title">分栏三</h3>
-        <h4 class="sutitle">分栏小标题</h4>
-      </li>
-    </ul>
-    <section class="module moduleOne">
-      <h2 class="title">模块一</h2>
-      <div class="one">
-        <img src="images/bear-profile.png" alt="bear-profile">
-        <p>这是文案</p>
-        <p>这是文案</p>
-        <p>这是文案</p>
-        <p>这是文案</p>
+  <!--导航-->
+  <nav>
+    <a href="#1">导航</a>
+    <a href="#2">导航</a>
+    <a href="#3">导航</a>
+    <a href="#4">导航</a>
+    <a href="#5">导航</a>
+  </nav>
+  <!--宣传栏-图片-->
+  <div class="barnner">
+    <picture>
+      <!--<source  media="(max-width:360px)" srcset="img/cat-160.jpg" />
+      <source  media="(max-width:412px)" srcset="img/cat-320.jpg" />-->
+      <img src="img/smbear.jpg" alt="小熊" width="100%"/>
+    </picture>
+  </div>
+  <!--标签-这里干啥用的？挖个坑先-->
+  <div class="label">
+    <div class="label-box">
+      <div class="label-img">
+        <img src="img/label.png" width="44px" height="44px"/>
       </div>
-      <div class="two">
-        <img src="images/bear-profile.png" alt="bear-profile">
-        <p>这是文案</p>
-        <p>这是文案</p>
-        <p>这是文案</p>
-        <p>这是文案</p>
+      <div class="label-title">标签</div>
+    </div>
+    <div class="label-box">
+      <div class="label-img">
+        <img src="img/label.png" width="44px" height="44px"/>
       </div>
-    </section>
-    <section class="module moduleTwo">
-      <h2 class="title">模块二</h2>
-      <div class="one">
-        <img src="images/bear-profile.png" alt="bear-profile">
-        <p>这是文案</p>
-        <p>这是文案</p>
-        <p>这是文案</p>
-        <p>这是文案</p>
+      <div class="label-title">标签</div>
+    </div>
+    <div class="label-box">
+      <div class="label-img">
+        <img src="img/label.png" width="44px" height="44px"/>
       </div>
-      <div class="two">
-        <img src="images/bear-profile.png" alt="bear-profile">
-        <p>这是文案</p>
-        <p>这是文案</p>
-        <p>这是文案</p>
-        <p>这是文案</p>
+      <div class="label-title">标签</div>
+    </div>
+    <div class="label-box">
+      <div class="label-img">
+        <img src="img/label.png" width="44px" height="44px"/>
       </div>
-      <div class="three">
-        <img src="images/small-bear.png" alt="small-bear">
-        <h3 class="title">这是文章标题字号是22的文章标题</h3>
-        <p>文章来源 <time>6</time>分钟前</p>
+      <div class="label-title">标签</div>
+    </div>
+    <div class="label-box">
+      <div class="label-img">
+        <img src="img/label.png" width="44px" height="44px"/>
       </div>
-      <div class="four">
-        <img src="images/small-bear.png" alt="small-bear">
-        <h3 class="title">这是另一个文章标题</h3>
-        <p>文章来源 <time>7</time>分钟前</p>
-      </div>
-      <div class="five">
-        <h3 class="title">这个也是文章标题字号是22的文章标题</h3>
-        <div class="imgs">
-          <img src="images/small-bear.png" alt="small-bear">
-          <img src="images/small-bear.png" alt="small-bear">
-          <img src="images/small-bear.png" alt="small-bear">
+      <div class="label-title">标签</div>
+    </div>
+  </div>
+  <!--效果条-->
+  <div class="bar"></div>
+  <!--分栏-->
+  <div class="border-bottom-box">
+      <div class="grid-box">
+        <div class="grid">
+          <img src="img/grid1.jpg" alt="小熊" width="100%"/>
+          <h2>分栏一</h2>
+          <p>分栏小标题</p>
+        </div>
+        <div class="grid grid-mid">
+          <img src="img/grid2.jpg" alt="小熊" width="100%"/>
+          <h2>分栏二</h2>
+          <p>分栏小标题</p>
+        </div>
+        <div class="grid">
+          <img src="img/grid3.jpg" alt="小熊" width="100%"/>
+          <h2>分栏三</h2>
+          <p>分栏小标题</p>
         </div>
       </div>
-    </section>
-  </main>
+  </div>
+  <!--模块一-->
+  <section>
+    <div id="1" class="border-bottom-box">
+        <h2>模块一</h2>
+        <div class="sec-body">
+          <!--左边放图-->
+          <div class="sec-body-l">
+            <img id="sec-body-l-img1" src="img/bearbh.jpg" alt="小熊" width="100%"  />
+            <img src="img/bearbh.jpg" alt="小熊" width="100%"  />
+          </div>
+          <!--右边放文案-->
+          <div class="sec-body-r">
+            <div class="sec-body-r-box">
+              <a class="sec-body-artical" href=""><p>这是文案</p></a>
+              <a class="sec-body-artical" href=""><p>这是文案</p></a>
+              <a class="sec-body-artical" href=""><p>这是文案</p></a>
+              <a class="sec-body-artical" href=""><p>这是文案</p></a>
+              <a class="sec-body-artical" href=""><p>这是文案</p></a>
+              <a class="sec-body-artical" href=""><p>这是文案</p></a>
+              <a class="sec-body-artical" href=""><p>这是文案</p></a>
+              <a class="sec-body-artical" href=""><p>这是文案</p></a>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div id="2" class="border-bottom-box">
+        <h2>模块二</h2>
+        <div class="sec-body">
+          <!--左边放图-->
+          <div class="sec-body-l">
+            <img id="sec-body-l-img1" src="img/bearbh.jpg" alt="小熊" width="100%"  />
+            <img src="img/bearbh.jpg" alt="小熊" width="100%"  />
+          </div>
+          <!--右边放文案-->
+          <div class="sec-body-r">
+            <div class="sec-body-r-box">
+              <a class="sec-body-artical" href=""><p>这是文案</p></a>
+              <a class="sec-body-artical" href=""><p>这是文案</p></a>
+              <a class="sec-body-artical" href=""><p>这是文案</p></a>
+              <a class="sec-body-artical" href=""><p>这是文案</p></a>
+              <a class="sec-body-artical" href=""><p>这是文案</p></a>
+              <a class="sec-body-artical" href=""><p>这是文案</p></a>
+              <a class="sec-body-artical" href=""><p>这是文案</p></a>
+              <a class="sec-body-artical" href=""><p>这是文案</p></a>
+            </div>
+          </div>
+        </div>
+    </div>
+    <a href="" id="3" class="little-border-bottom-box">
+      <div class="sec-body">
+          <!--左边放图-->
+          <div class="sec-body-l fix1">
+            <img src="img/sec-bear.jpg" alt="小熊" width="100%"  />
+          </div>
+          <!--右边放文案-->
+          <div class="sec-body-r fix2">
+
+              <div class="sec-body-r-box-title">这是文章标题字号是22的文字标题</div>
+              <div class="sec-body-r-box-source">文章来源 <span>6分钟前</span></div> 
+          </div>
+        </div>
+    </a>
+    <a href="" id="4" class="little-border-bottom-box">
+      <div class="sec-body">
+          <!--左边放图-->
+          <div class="sec-body-l fix1">
+            <img src="img/sec-bear.jpg" alt="小熊" width="100%"  />
+          </div>
+          <!--右边放文案-->
+          <div class="sec-body-r fix2">
+
+              <div class="sec-body-r-box-title">这是另一个文章标题</div>
+              <div class="sec-body-r-box-source">文章来源 <span>7分钟前</span></div> 
+          </div>
+        </div>
+    </a>
+    <a href="" id="5" class="sec-body-horizontal">
+        <div class="sec-body">
+          <div class="sec-body-horizontal-box-title">这个也是文章标题字号是22的文字标题</div>
+          <div class="pic-flex clearfloat">
+          <img class="pic-flex-item" src="img/bear.jpg"  width="32%"/>
+          <img class="pic-flex-item" src="img/bear.jpg"  width="32%"/>
+          <img class="pic-flex-item" src="img/bear.jpg"  width="32%"/>
+          </div>
+          <div class="sec-body-horizontal-box-source">文章来源 <span>7分钟前</span></div> 
+        </div> 
+    </a>
+  </section>
 </body>
 </html>
